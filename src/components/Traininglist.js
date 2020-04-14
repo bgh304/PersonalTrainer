@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import moment from 'moment';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Customerlist() {
@@ -17,7 +18,8 @@ export default function Customerlist() {
     const columns = [
         {
             Header: 'Date',
-            accessor: 'date'
+            accessor: 'date',
+            Cell: row => (moment(row.value).format('YYYY.DD.MM'))
         },
         {
             Header: 'Duration',
