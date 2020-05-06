@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactTable from 'react-table';
+import Button from '@material-ui/core/Button';
 import 'react-table/react-table.css';
 import moment from 'moment';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -15,6 +16,14 @@ export default function Customerlist() {
         .then(data => setTrainings(data.content))
     }
 
+    const deleteTraining = (link) => {
+        if (window.confirm('Are you sure?')) {
+            fetch(link, {method: 'DELETE'})
+            .then(res => fetchData())
+            .catch(err => console.error(err))
+        }
+    }
+
     const columns = [
         {
             Header: 'Date',
@@ -28,6 +37,13 @@ export default function Customerlist() {
         {
             Header: 'Activity',
             accessor: 'activity'
+        },
+        {
+            sortable: false,
+            filterable: false,
+            width: 100,
+            accessor: 'links.1.href',
+            Cell: row => <Button color="secondary" size="small" onClick={() => deleteTraining(row.value)}>Delete</Button>
         }
     ]
 

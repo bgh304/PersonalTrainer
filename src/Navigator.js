@@ -8,7 +8,7 @@ function Navigator() {
             <button className="navbar-toggler navbar-toggler-righ" type="button"
                     data-toggle="collapse" data-target="#navbarSupportedcontent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-laber="Toggle navigation">
+                    aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
